@@ -1,0 +1,10 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="TestApplication:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/TestApplication_jar</output-path>
+    <root id="archive" name="TestApplication.jar">
+      <element id="module-output" name="TestApplication" />
+      <element id="extracted-dir" path="$USER_HOME$/Downloads/postgresql-42.2.5.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="E:/к ворлдскилсу программы/mysql-connector-java-8.0.14/mysql-connector-java-8.0.14.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>

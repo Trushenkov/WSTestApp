@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.WelcomeController">
+   <children>
+      <AnchorPane prefHeight="200.0" prefWidth="1100.0" style="-fx-background-color: #2e3348;">
+         <children>
+            <ImageView fx:id="logo" fitHeight="186.0" fitWidth="191.0" layoutX="7.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/nba-logo.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="buttonExit" layoutX="813.0" layoutY="75.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="230.0" text="Выход" textFill="#796c6c">
+               <font>
+                  <Font name="Microsoft Sans Serif" size="18.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+         </children>
+      </AnchorPane>
+      <Label fx:id="labelWelcome" layoutX="431.0" layoutY="237.0" prefHeight="48.0" prefWidth="239.0" text="Добро пожаловать" textFill="#796c6c">
+         <font>
+            <Font name="MS Reference Sans Serif" size="24.0" />
+         </font>
+      </Label>
+      <Label fx:id="loginAsField" layoutX="463.0" layoutY="331.0" prefHeight="38.0" prefWidth="175.0" text="Вы вошли под логином:" />
+      <Label fx:id="passwordAsField" layoutX="463.0" layoutY="388.0" text="Ваш пароль: " />
+   </children>
+</AnchorPane>

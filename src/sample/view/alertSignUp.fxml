@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="250.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.AlertController">
+    <children>
+        <Button fx:id="buttonCloseAlert" layoutX="85.0" layoutY="147.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="230.0" style="-fx-background-color: #2e3348;" text="Закрыть уведомление" textFill="WHITE">
+            <font>
+                <Font name="Microsoft Sans Serif" size="18.0" />
+            </font>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </Button>
+        <Label fx:id="labelSignUp" layoutX="115.0" layoutY="14.0" prefHeight="48.0" prefWidth="170.0" text="Уведомление" textFill="#796c6c">
+            <font>
+                <Font name="MS Reference Sans Serif" size="24.0" />
+            </font>
+        </Label>
+      <Label layoutX="50.0" layoutY="88.0" text="Вы успешно зарегистрировались в системе" />
+    </children>
+</AnchorPane>
