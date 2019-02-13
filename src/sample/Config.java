@@ -13,19 +13,19 @@ class Config {
     /**
      * MySQL
      */
-//    String dbHost = "localhost";
-//    String dbPort = "3306";
-//    String dbUser = "root";
-//    String dbPass = "12345";
-//    String dbName = "public";
+    String dbHost = "localhost";
+    String dbPort = "3306";
+    String dbUser = "root";
+    String dbPass = "12345";
+    String dbName = "public";
 
     /**
      * PostgreSQL
      */
-    String dbHost = "localhost";
-    String dbPort = "5432";
-    String dbUser = "postgres";
-    String dbPass = "admin";
-    String dbName = "postgres";
+//    String dbHost = "localhost";
+//    String dbPort = "5432";
+//    String dbUser = "postgres";
+//    String dbPass = "admin";
+//    String dbName = "postgres";
 }
 
