@@ -8,17 +8,16 @@ import sample.Service;
 
 import java.net.URL;
 import java.util.ResourceBundle;
-import java.util.prefs.Preferences;
+
 
 /**
- * Date: 01.02.2019 (пятница)
+ * Date: 11.02.2019 (понедельник)
  * Project name: TestApplication
  * Package name: sample.controllers
  *
  * @author Трушенков Дмитрий 15ИТ18
  */
-public class OrderWindowController {
-
+public class StrorekeeperController {
 
     @FXML
     private ResourceBundle resources;
@@ -27,34 +26,37 @@ public class OrderWindowController {
     private URL location;
 
     @FXML
-    private Label passwordTextField;
+    private Label labelWelcome;
 
     @FXML
-    private Label labelWelcome;
+    private Button materials;
 
     @FXML
     private Button buttonExit;
 
     @FXML
+    private Button listOrders;
+
+    @FXML
     private ImageView logo;
 
     @FXML
-    private Label loginTextField;
+    private Button toDoOrder;
 
     @FXML
     void initialize() {
-        Preferences preferences = Preferences.userRoot();
-        String login = preferences.get("user_login", "");
-        String password = preferences.get("user_password", "");
-
-        loginTextField.setText(loginTextField.getText() + login);
-        passwordTextField.setText(passwordTextField.getText() + password);
-
+        //Обработка нажатия на кнопку "Выход"
         buttonExit.setOnAction(event -> {
             buttonExit.getScene().getWindow().hide();
             new Service().changeScreen("/sample/view/login.fxml", "Авторизация");
         });
+
+        listOrders.setOnAction(event -> {
+            listOrders.getScene().getWindow().hide();
+            new Service().changeScreen("/sample/view/listMaterialsScreen.fxml", "Список материалов");
+        });
+
+
     }
 
 }
-

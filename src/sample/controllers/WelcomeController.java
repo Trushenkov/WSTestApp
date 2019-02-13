@@ -10,6 +10,7 @@ import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import sample.DataBaseHandler;
 import sample.Helper;
+import sample.Service;
 
 import java.io.IOException;
 import java.net.URL;
@@ -24,7 +25,7 @@ import java.util.prefs.Preferences;
  *
  * @author Трушенков Дмитрий 15ИТ18
  */
-public class WelcomeController implements Helper {
+public class WelcomeController {
 
     @FXML
     private ResourceBundle resources;
@@ -49,15 +50,14 @@ public class WelcomeController implements Helper {
 
     @FXML
     void initialize() {
-        DataBaseHandler dbhandler = new DataBaseHandler();
         Preferences preferences = Preferences.userRoot();
-        String login = preferences.get("user_login","");
-        String password = preferences.get("user_password","");
+        String login = preferences.get("user_login", "");
+        String password = preferences.get("user_password", "");
         loginAsField.setText("Ваш логин: " + login);
         passwordAsField.setText("Ваш пароль: " + password);
 
-        System.out.print(preferences.get("user_login",""));
-        System.out.print(preferences.get("user_password",""));
+        System.out.print(preferences.get("user_login", ""));
+        System.out.print(preferences.get("user_password", ""));
 
         buttonExit.setOnAction(event -> {
             buttonExit.getScene().getWindow().hide();
@@ -67,35 +67,11 @@ public class WelcomeController implements Helper {
                 e.printStackTrace();
             }
 
-            System.out.print(preferences.get("user_login",""));
-            System.out.print(preferences.get("user_password",""));
+            System.out.print(preferences.get("user_login", ""));
+            System.out.print(preferences.get("user_password", ""));
 
-            changeScreen("/sample/view/login.fxml", "Авторизация");
+            new Service().changeScreen("/sample/view/login.fxml", "Авторизация");
         });
-    }
-
-    /**
-     * Метод для перехода на другое окно приложения
-     *
-     * @param path  путь к fxml файлу
-     * @param title заголовок окна
-     */
-    @Override
-    public void changeScreen(String path, String title) {
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource(path));
-        try {
-            loader.load();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        Parent root = loader.getRoot();
-        Stage stage = new Stage();
-        stage.setScene(new Scene(root));
-        stage.setTitle("Test application - " + title + "!");
-        stage.setResizable(false);
-        stage.show();
     }
 }
 

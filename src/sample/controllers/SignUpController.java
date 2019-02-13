@@ -1,29 +1,24 @@
 package sample.controllers;
 
-import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
-
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
-import javafx.stage.Stage;
 import sample.DataBaseHandler;
-import sample.Helper;
+import sample.Service;
 import sample.User;
+
+import java.net.URL;
+import java.util.ResourceBundle;
 
 /**
  * Класс-контроллер для окна "Test Application - SignUp"
  *
  * @author Трушенков Дмитрий
  */
-public class SignUpController implements Helper {
+public class SignUpController {
 
     @FXML
     private ResourceBundle resources;
@@ -68,25 +63,8 @@ public class SignUpController implements Helper {
                 loginTextField.setText("");
                 passwordField.setText("");
 
-
                 //Перенаправление и открытие новой окна приложения
-                changeScreen("/sample/view/alertSignUp.fxml", "Регистрация");
-//                FXMLLoader loader = new FXMLLoader();
-//                loader.setLocation(getClass().getResource("/sample/view/alertSignUp.fxml"));
-//                try {
-//                    loader.load();
-//                } catch (IOException e) {
-//                    e.printStackTrace();
-//                }
-//
-//                Parent root = loader.getRoot();
-//                Stage stage = new Stage();
-//                stage.setScene(new Scene(root));
-//                stage.setTitle("Alert SignUp");
-//                stage.setResizable(false);
-//                stage.setHeight(250);
-//                stage.setWidth(400);
-//                stage.showAndWait();
+                new Service().changeScreen("/sample/view/alertTemplate.fxml", "Регистрация");
             } else {
                 System.out.println("Login and password is empty");
             }
@@ -97,7 +75,7 @@ public class SignUpController implements Helper {
         //Обработка нажатия на кнопку "Авторизация"
         btnLogin.setOnAction(event -> {
             btnLogin.getScene().getWindow().hide();
-            changeScreen("/sample/view/login.fxml", "Авторизация");
+            new Service().changeScreen("/sample/view/login.fxml", "Авторизация");
         });
     }
 
@@ -118,28 +96,5 @@ public class SignUpController implements Helper {
 
     }
 
-    /**
-     * Метод для перехода на другое окно приложения
-     *
-     * @param path  путь к fxml файлу
-     * @param title заголовок окна
-     */
-    @Override
-    public void changeScreen(String path, String title) {
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource(path));
-        try {
-            loader.load();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        Parent root = loader.getRoot();
-        Stage stage = new Stage();
-        stage.setScene(new Scene(root));
-        stage.setTitle("Test application - " + title + "!");
-        stage.setResizable(false);
-        stage.show();
-    }
 }
 

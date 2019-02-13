@@ -32,7 +32,6 @@ public class AlertController {
 
     @FXML
     void initialize() {
-
         buttonCloseAlert.setOnAction(event -> {
             buttonCloseAlert.getScene().getWindow().hide();
         });
