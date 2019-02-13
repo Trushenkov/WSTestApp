@@ -32,8 +32,8 @@ public class DataBaseHandler extends Config {
      * @throws ClassNotFoundException exception
      * @throws SQLException           exception
      */
-    private Connection getDbConnection() throws ClassNotFoundException, SQLException {
-        String connectionString = "jdbc:postgresql://" + dbHost + ":" + dbPort + "/" + dbName;
+    public   Connection getDbConnection() throws ClassNotFoundException, SQLException {
+        String connectionString = "jdbc:mysql://" + dbHost + ":" + dbPort + "/" + dbName +"?serverTimezone=UTC";
         dbConnection = DriverManager.getConnection(connectionString, dbUser, dbPass);
         return dbConnection;
     }
@@ -44,7 +44,7 @@ public class DataBaseHandler extends Config {
      * @param user пользователь
      */
     public void signUpUser(User user) {
-        String insert = "INSERT INTO " + Const.USER_TABLE + "(" + Const.USER_LOGIN + "," + Const.USER_PASSWORD + "," + Const.USER_ROLE + "," + Const.USER_NAME + ")" + "VALUES(?,?,?,?)";
+        String insert = "INSERT INTO " + Const.USER_TABLE + " (" + Const.USER_LOGIN + ", " + Const.USER_PASSWORD + ", " + Const.USER_ROLE + ", " + Const.USER_NAME + ")" + " VALUES(?,?,?,?)";
 
         try {
             PreparedStatement preparedStatement = getDbConnection().prepareStatement(insert);
