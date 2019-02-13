@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.ListOrdersController">
+   <children>
+      <AnchorPane prefHeight="200.0" prefWidth="1100.0" style="-fx-background-color: #2e3348;">
+         <children>
+            <ImageView fx:id="logo" fitHeight="186.0" fitWidth="191.0" layoutX="7.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/nba-logo.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="buttonExit" layoutX="813.0" layoutY="75.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="230.0" text="Выход" textFill="#796c6c">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <font>
+                  <Font name="Microsoft Sans Serif" size="18.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+      <TableView fx:id="table" layoutX="124.0" layoutY="261.0" prefHeight="367.0" prefWidth="852.0">
+        <columns>
+          <TableColumn prefWidth="123.0" text="C1" />
+          <TableColumn prefWidth="98.0" text="C2" />
+            <TableColumn prefWidth="133.0" text="Column X" />
+            <TableColumn prefWidth="159.0" text="Column X" />
+            <TableColumn prefWidth="163.0" text="Column X" />
+            <TableColumn prefWidth="175.0" text="Column X" />
+        </columns>
+      </TableView>
+      <Label fx:id="label" layoutX="443.0" layoutY="207.0" prefHeight="48.0" prefWidth="214.0" text="Список заказов" textFill="#796c6c">
+         <font>
+            <Font name="MS Reference Sans Serif" size="24.0" />
+         </font>
+      </Label>
+      <Button fx:id="btnBack" layoutY="650.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="230.0" text="&lt; Назад" textFill="#796c6c">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font name="Microsoft Sans Serif" size="18.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
