@@ -1,19 +1,26 @@
 package sample.controllers;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.cell.TextFieldTableCell;
+import javafx.scene.image.ImageView;
+import javafx.util.converter.IntegerStringConverter;
+import sample.Const;
+import sample.DataBaseHandler;
+import sample.entities.Material;
+import sample.Service;
+
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.util.Collection;
 import java.util.ResourceBundle;
-
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import javafx.fxml.FXML;
-import javafx.scene.control.*;
-import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.image.ImageView;
-import sample.*;
 
 /**
  * Date: 12.02.2019 (вторник)
@@ -68,7 +75,7 @@ public class ListMaterialsController {
 
 //    private ObservableList<ObservableList> data;
 
-    private static final String SELECT = "select * from материал";
+    private static final String SELECT = "select * from " + Const.TABLE_MATERIAL;
 
     private ObservableList<Material> list;
 
@@ -77,6 +84,24 @@ public class ListMaterialsController {
     @FXML
     void initialize() {
 
+        //Для редактирования таблицы
+        tableView.setEditable(true);
+        articul.setCellFactory(TextFieldTableCell
+                .forTableColumn());
+        name.setCellFactory(TextFieldTableCell
+                .forTableColumn());
+        marka.setCellFactory(TextFieldTableCell
+                .forTableColumn());
+        color.setCellFactory(TextFieldTableCell
+                .forTableColumn());
+        length.setCellFactory(TextFieldTableCell
+                .forTableColumn(new IntegerStringConverter()));
+        width.setCellFactory(TextFieldTableCell
+                .forTableColumn(new IntegerStringConverter()));
+        price.setCellFactory(TextFieldTableCell
+                .forTableColumn(new IntegerStringConverter()));
+
+        //Определение полей таблицы и соответствие полям объекта Material
         articul.setCellValueFactory(new PropertyValueFactory<>("articul"));
         name.setCellValueFactory(new PropertyValueFactory<>("name"));
         marka.setCellValueFactory(new PropertyValueFactory<>("marka"));
@@ -114,14 +139,15 @@ public class ListMaterialsController {
 
         tableView.setItems(list);
 
+        //множественная выборка из таблицы
 //        tableView.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
-//        Material selectedMaterial = tableView.getSelectionModel().getSelectedItem();
-//        System.out.println(selectedMaterial);
 
         //Обработка нажатия на кнопку "Выход"
         exitButton.setOnAction(event -> {
             exitButton.getScene().getWindow().hide();
             new Service().changeScreen("/sample/view/login.fxml", "Авторизация");
+//            Material selectedMaterial = tableView.getSelectionModel().getSelectedItem();
+//            System.out.println(selectedMaterial);
         });
 
         //Обработка нажатия на кнопку "Назад"

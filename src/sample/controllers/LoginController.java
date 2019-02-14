@@ -10,7 +10,7 @@ import javafx.scene.image.ImageView;
 import sample.Const;
 import sample.DataBaseHandler;
 import sample.Service;
-import sample.User;
+import sample.entities.User;
 
 import java.net.URL;
 import java.sql.ResultSet;

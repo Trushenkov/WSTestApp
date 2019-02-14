@@ -8,7 +8,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import sample.DataBaseHandler;
 import sample.Service;
-import sample.User;
+import sample.entities.User;
 
 import java.net.URL;
 import java.util.ResourceBundle;

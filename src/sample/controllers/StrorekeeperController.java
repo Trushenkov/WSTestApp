@@ -1,5 +1,6 @@
 package sample.controllers;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -53,10 +54,14 @@ public class StrorekeeperController {
 
         listOrders.setOnAction(event -> {
             listOrders.getScene().getWindow().hide();
-            new Service().changeScreen("/sample/view/listMaterialsScreen.fxml", "Список материалов");
+            new Service().changeScreen("/sample/view/listMaterialsScreen.fxml",
+                    "Список материалов");
         });
-
-
     }
 
+    public void showIncomingMaterials(ActionEvent actionEvent) {
+        materials.getScene().getWindow().hide();
+        new Service().changeScreen("/sample/view/incomingOrders.fxml",
+                "Поступление материалов");
+    }
 }
