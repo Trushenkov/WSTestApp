@@ -47,7 +47,7 @@
             <Font name="Microsoft Sans Serif" size="18.0" />
          </font>
       </Button>
-      <Button fx:id="materials" layoutX="425.0" layoutY="501.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="250.0" text="Поступление материалов" textFill="#796c6c">
+      <Button fx:id="materials" onAction="#showIncomingMaterials" layoutX="425.0" layoutY="501.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="250.0" text="Поступление материалов" textFill="#796c6c">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
