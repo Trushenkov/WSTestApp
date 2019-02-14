@@ -1,4 +1,4 @@
-package sample;
+package sample.entities;
 
 /**
  * Date: 12.02.2019 (вторник)
