@@ -2,6 +2,7 @@ package sample;
 
 import sample.entities.User;
 
+import javafx.event.ActionEvent;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -39,18 +40,32 @@ public class DataBaseHandler extends Config {
      *
      * @param user пользователь
      */
-    public void signUpUser(User user) {
+    public void signUpUser(User user, ActionEvent actionEvent) {
         String insert = "INSERT INTO " + Const.USER_TABLE + " (" + Const.USER_LOGIN + ", " + Const.USER_PASSWORD + ", " + Const.USER_ROLE + ", " + Const.USER_NAME + ")" + " VALUES(?,?,?,?)";
 
+        String selectUserLogin = "SELECT " + Const.USER_LOGIN + " FROM " + Const.USER_TABLE + " WHERE " + Const.USER_LOGIN + "=?";
         try {
-            PreparedStatement preparedStatement = getDbConnection().prepareStatement(insert);
-            preparedStatement.setString(1, user.getLogin());
-            preparedStatement.setString(2, user.getPassword());
-            preparedStatement.setString(3, user.getRole());
-            preparedStatement.setString(4, user.getName());
 
-            preparedStatement.executeUpdate();
-        } catch (ClassNotFoundException | SQLException e) {
+            PreparedStatement prSt = getDbConnection().prepareStatement(selectUserLogin);
+            prSt.setString(1, user.getLogin());
+            ResultSet resultSet = prSt.executeQuery();
+            if (resultSet.next()) {
+                System.out.println("Пользователь с таким логином уже существует");
+                new Service().changeScreenModalWindow("/sample/view/alerts/alertExistLogin.fxml", "Ошибка при регистрации", actionEvent);
+            } else {
+                PreparedStatement preparedStatement = getDbConnection().prepareStatement(insert);
+                preparedStatement.setString(1, user.getLogin());
+                preparedStatement.setString(2, user.getPassword());
+                preparedStatement.setString(3, user.getRole());
+                preparedStatement.setString(4, user.getName());
+
+                preparedStatement.executeUpdate();
+
+                //Перенаправление и открытие нового окна приложения
+                new Service().changeScreenModalWindow("/sample/view/alerts/alertTemplate.fxml", "Регистрация", actionEvent);
+            }
+
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
