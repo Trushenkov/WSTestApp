@@ -14,6 +14,8 @@ import static org.junit.Assert.*;
  */
 public class PasswordTest {
 
+    private static final String REGEXP = "^(?=.*[0-9])(?=.*[A-Z])(?=.*[!@#$%^])(?=\\S+$).{6,}$";
+
     @Test
     public void testUser1() throws Exception {
         User user = new User();
@@ -22,7 +24,7 @@ public class PasswordTest {
         user.setRole("Заказчик");
         user.setName("Иванов");
 
-        assertTrue(user.getPassword().matches("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^])(?=\\S+$).{6,}$"));
+        assertTrue(user.getPassword().matches(REGEXP));
     }
 
     @Test
@@ -33,7 +35,7 @@ public class PasswordTest {
         user.setRole("Заказчик");
         user.setName("Иванов");
 
-        assertTrue(user.getPassword().matches("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^])(?=\\S+$).{6,}$"));
+        assertFalse(user.getPassword().matches(REGEXP));
     }
 
     @Test
@@ -44,7 +46,7 @@ public class PasswordTest {
         user.setRole("Заказчик");
         user.setName("Иванов");
 
-        assertTrue(user.getPassword().matches("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^])(?=\\S+$).{6,}$"));
+        assertTrue(user.getPassword().matches(REGEXP));
     }
 
     @Test
@@ -55,7 +57,7 @@ public class PasswordTest {
         user.setRole("Менеджер");
         user.setName("Петров");
 
-        assertTrue(user.getPassword().matches("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^])(?=\\S+$).{6,}$"));
+        assertFalse(user.getPassword().matches(REGEXP));
     }
 
     @Test
@@ -66,7 +68,7 @@ public class PasswordTest {
         user.setRole("Менеджер");
         user.setName("Петров");
 
-        assertTrue(user.getPassword().matches("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^])(?=\\S+$).{6,}$"));
+        assertTrue(user.getPassword().matches(REGEXP));
     }
 
     @Test
@@ -77,7 +79,7 @@ public class PasswordTest {
         user.setRole("Директор");
         user.setName("Коняев");
 
-        assertTrue(user.getPassword().matches("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^])(?=\\S+$).{6,}$"));
+        assertTrue(user.getPassword().matches(REGEXP));
     }
 
     @Test
@@ -88,7 +90,7 @@ public class PasswordTest {
         user.setRole("Менеджер");
         user.setName("Петров");
 
-        assertTrue(user.getPassword().matches("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^])(?=\\S+$).{6,}$"));
+        assertFalse(user.getPassword().matches(REGEXP));
     }
 
     @Test
@@ -99,7 +101,7 @@ public class PasswordTest {
         user.setRole("Кладовщик");
         user.setName("Петров");
 
-        assertTrue(user.getPassword().matches("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^])(?=\\S+$).{6,}$"));
+        assertTrue(user.getPassword().matches(REGEXP));
     }
 
     @Test
@@ -110,18 +112,18 @@ public class PasswordTest {
         user.setRole("Менеджер");
         user.setName("Уткин");
 
-        assertTrue(user.getPassword().matches("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^])(?=\\S+$).{6,}$"));
+        assertTrue(user.getPassword().matches(REGEXP));
     }
 
     @Test
     public void testUser10() throws Exception {
         User user = new User();
         user.setLogin("login10");
-        user.setPassword("ASDASD$#@!");
+        user.setPassword("ASDASD2$#@!");
         user.setRole("Кладовщик");
         user.setName("Зинченко");
 
-        assertTrue(user.getPassword().matches("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^])(?=\\S+$).{6,}$"));
+        assertTrue(user.getPassword().matches(REGEXP));
     }
 
 
