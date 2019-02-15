@@ -99,6 +99,18 @@ public class IncomingMaterialsController {
     @FXML
     void initialize() {
 
+        count.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (!newValue.matches("\\d*")) {
+                count.setText(newValue.replaceAll("[^\\d]", ""));
+            }
+        });
+
+        purchasePrice.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (!newValue.matches("\\d*")) {
+                purchasePrice.setText(newValue.replaceAll("[^\\d]", ""));
+            }
+        });
+
         provider.getItems().addAll("Поставщик 1",
                 "Поставщик 2",
                 "Поставщик 3",
