@@ -1,8 +1,7 @@
-package sample.controllers;
+package sample.controllers.alerts;
 
 import java.net.URL;
 import java.util.ResourceBundle;
-
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -15,7 +14,7 @@ import javafx.scene.layout.HBox;
  *
  * @author Трушенков Дмитрий 15ИТ18
  */
-public class AlertBadLoginController {
+public class AlertTemplateController {
 
     @FXML
     private ResourceBundle resources;
