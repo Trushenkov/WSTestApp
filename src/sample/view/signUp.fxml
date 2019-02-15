@@ -9,7 +9,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.SignUpController">
    <children>
-      <Button fx:id="buttonSignUp" layoutX="435.0" layoutY="598.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="230.0" style="-fx-background-color: #2e3348;" text="Зарегистрироваться" textFill="WHITE">
+      <Button fx:id="buttonSignUp" onAction="#signUpAction" layoutX="435.0" layoutY="598.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="230.0" style="-fx-background-color: #2e3348;" text="Зарегистрироваться" textFill="WHITE">
          <font>
             <Font name="Microsoft Sans Serif" size="18.0" />
          </font>
@@ -18,7 +18,7 @@
          </cursor>
       </Button>
       <TextField fx:id="loginTextField" layoutX="350.0" layoutY="299.0" prefHeight="48.0" prefWidth="400.0" promptText="Логин" />
-      <AnchorPane prefHeight="200.0" prefWidth="1100.0" style="-fx-background-color: #2e3348;">
+      <AnchorPane id="anchor" prefHeight="200.0" prefWidth="1100.0">
          <children>
             <ImageView fx:id="logo" fitHeight="186.0" fitWidth="191.0" layoutX="7.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
                <image>

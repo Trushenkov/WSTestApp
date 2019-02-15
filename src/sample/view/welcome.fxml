@@ -9,7 +9,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.WelcomeController">
    <children>
-      <AnchorPane prefHeight="200.0" prefWidth="1100.0" style="-fx-background-color: #2e3348;">
+      <AnchorPane id="anchor" prefHeight="200.0" prefWidth="1100.0">
          <children>
             <ImageView fx:id="logo" fitHeight="186.0" fitWidth="191.0" layoutX="7.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
                <image>
