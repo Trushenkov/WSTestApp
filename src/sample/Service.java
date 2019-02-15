@@ -38,9 +38,7 @@ public class Service {
         Scene scene = new Scene(root);
         Stage stage = new Stage();
         stage.setScene(scene);
-        if (path.equals("/sample/view/listMaterialsScreen.fxml")) {
-            scene.getStylesheets().add("/sample/css/style.css");
-        }
+        scene.getStylesheets().add("/sample/css/style.css");
         stage.setTitle("Test application - " + title + "!");
         stage.setResizable(false);
         stage.show();
