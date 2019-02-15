@@ -85,21 +85,21 @@ public class ListMaterialsController {
     void initialize() {
 
         //Для редактирования таблицы
-        tableView.setEditable(true);
-        articul.setCellFactory(TextFieldTableCell
-                .forTableColumn());
-        name.setCellFactory(TextFieldTableCell
-                .forTableColumn());
-        marka.setCellFactory(TextFieldTableCell
-                .forTableColumn());
-        color.setCellFactory(TextFieldTableCell
-                .forTableColumn());
-        length.setCellFactory(TextFieldTableCell
-                .forTableColumn(new IntegerStringConverter()));
-        width.setCellFactory(TextFieldTableCell
-                .forTableColumn(new IntegerStringConverter()));
-        price.setCellFactory(TextFieldTableCell
-                .forTableColumn(new IntegerStringConverter()));
+//        tableView.setEditable(true);
+//        articul.setCellFactory(TextFieldTableCell
+//                .forTableColumn());
+//        name.setCellFactory(TextFieldTableCell
+//                .forTableColumn());
+//        marka.setCellFactory(TextFieldTableCell
+//                .forTableColumn());
+//        color.setCellFactory(TextFieldTableCell
+//                .forTableColumn());
+//        length.setCellFactory(TextFieldTableCell
+//                .forTableColumn(new IntegerStringConverter()));
+//        width.setCellFactory(TextFieldTableCell
+//                .forTableColumn(new IntegerStringConverter()));
+//        price.setCellFactory(TextFieldTableCell
+//                .forTableColumn(new IntegerStringConverter()));
 
         //Определение полей таблицы и соответствие полям объекта Material
         articul.setCellValueFactory(new PropertyValueFactory<>("articul"));
