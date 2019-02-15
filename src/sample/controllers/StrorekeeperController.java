@@ -42,7 +42,7 @@ public class StrorekeeperController {
     private ImageView logo;
 
     @FXML
-    private Button toDoOrder;
+    private Button listFurniture;
 
     @FXML
     void initialize() {
@@ -56,6 +56,12 @@ public class StrorekeeperController {
             listOrders.getScene().getWindow().hide();
             new Service().changeScreen("/sample/view/listMaterialsScreen.fxml",
                     "Список материалов");
+        });
+
+        listFurniture.setOnAction(event -> {
+            listFurniture.getScene().getWindow().hide();
+            new Service().changeScreen("/sample/view/listFurniture.fxml",
+                    "Список фурнитуры");
         });
     }
 

@@ -1,5 +1,8 @@
 package sample.controllers;
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -12,6 +15,7 @@ import sample.entities.User;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.regex.Pattern;
 
 /**
  * Класс-контроллер для окна "Test Application - SignUp"
@@ -53,25 +57,6 @@ public class SignUpController {
     @FXML
     void initialize() {
 
-        //Обработка нажатия на кнопку "Зарегистрироваться"
-        buttonSignUp.setOnAction(event -> {
-
-            if (!loginTextField.getText().equals("") && !passwordField.getText().equals("")) {
-                sighUpNewUser();
-
-                //Обнуляем поля для ввода
-                loginTextField.setText("");
-                passwordField.setText("");
-
-                //Перенаправление и открытие новой окна приложения
-                new Service().changeScreen("/sample/view/alertTemplate.fxml", "Регистрация");
-            } else {
-                System.out.println("Login and password is empty");
-            }
-
-
-        });
-
         //Обработка нажатия на кнопку "Авторизация"
         btnLogin.setOnAction(event -> {
             btnLogin.getScene().getWindow().hide();
@@ -82,7 +67,7 @@ public class SignUpController {
     /**
      * Метод, в котором собираются данные из полей, заполненных пользователем, и вызывается метод для записи данных в БД.
      */
-    private void sighUpNewUser() {
+    private void sighUpNewUser(ActionEvent actionEvent) {
         DataBaseHandler dbHandler = new DataBaseHandler();
 
         String login = loginTextField.getText();
@@ -92,9 +77,32 @@ public class SignUpController {
 
         User user = new User(login, password, role, name);
 
-        dbHandler.signUpUser(user);
+        dbHandler.signUpUser(user, actionEvent);
 
     }
 
+    public void signUpAction(ActionEvent actionEvent) {
+
+        if (!loginTextField.getText().equals("") &&
+                !passwordField.getText().equals("") &&
+                !nameTextField.getText().equals("")) {
+
+            if (!passwordField.getText()
+                    .matches("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^])(?=\\S+$).{6,}$")) {
+                System.out.println("Неправильно введен пароль");
+                return;
+            }
+
+            sighUpNewUser(actionEvent);
+
+            //Обнуляем поля для ввода
+            loginTextField.setText("");
+            passwordField.setText("");
+            nameTextField.setText("");
+        } else {
+            System.out.println("Не заполнены поля ввода");
+        }
+
+    }
 }
 

@@ -51,7 +51,6 @@ public class LoginController {
 
     private int countOfUsers = 0;
 
-
     @FXML
     void initialize() {
         loginTextField.setText("");
@@ -122,7 +121,7 @@ public class LoginController {
             }
 
             if (countOfUsers == 0) {
-                new Service().changeScreenModalWindow("/sample/view/alertBadLogin.fxml", "Ошибка входа", actionEvent);
+                new Service().changeScreenModalWindow("/sample/view/alerts/alertBadLogin.fxml", "Ошибка входа", actionEvent);
             }
 
 
@@ -148,7 +147,7 @@ public class LoginController {
                 e.printStackTrace();
             }
         } else {
-            System.out.println("Login and password is empty");
+            System.out.println("Не заполнены поля ввода");
         }
 
 
