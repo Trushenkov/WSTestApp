@@ -15,25 +15,9 @@ public class Main extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("view/login.fxml"));
         primaryStage.setTitle("Test application - Login");
         primaryStage.setScene(new Scene(root, 1085, 700));
+        primaryStage.getScene().getStylesheets().add("/sample/css/style.css");
         primaryStage.setResizable(false);
         primaryStage.show();
-    }
-
-    public void changeScreen(String path){
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource(path));
-        try {
-            loader.load();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        Parent root = loader.getRoot();
-        Stage stage = new Stage();
-        stage.setScene(new Scene(root));
-        stage.setTitle("Test application - Login!");
-        stage.setResizable(false);
-        stage.show();
     }
 
     public static void main(String[] args) {
