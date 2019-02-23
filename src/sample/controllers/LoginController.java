@@ -3,19 +3,15 @@ package sample.controllers;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.image.ImageView;
 import sample.Const;
 import sample.DataBaseHandler;
 import sample.Service;
 import sample.entities.User;
 
-import java.net.URL;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ResourceBundle;
 import java.util.prefs.Preferences;
 
 /**
@@ -26,12 +22,6 @@ import java.util.prefs.Preferences;
 public class LoginController {
 
     @FXML
-    private ResourceBundle resources;
-
-    @FXML
-    private URL location;
-
-    @FXML
     private Button buttonSignUp;
 
     @FXML
@@ -39,12 +29,6 @@ public class LoginController {
 
     @FXML
     private Button buttonLogin;
-
-    @FXML
-    private Label labelLogIn;
-
-    @FXML
-    private ImageView logo;
 
     @FXML
     private TextField loginTextField;

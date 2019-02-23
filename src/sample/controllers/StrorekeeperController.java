@@ -3,12 +3,7 @@ package sample.controllers;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.image.ImageView;
 import sample.Service;
-
-import java.net.URL;
-import java.util.ResourceBundle;
 
 
 /**
@@ -21,15 +16,6 @@ import java.util.ResourceBundle;
 public class StrorekeeperController {
 
     @FXML
-    private ResourceBundle resources;
-
-    @FXML
-    private URL location;
-
-    @FXML
-    private Label labelWelcome;
-
-    @FXML
     private Button materials;
 
     @FXML
@@ -37,9 +23,6 @@ public class StrorekeeperController {
 
     @FXML
     private Button listOrders;
-
-    @FXML
-    private ImageView logo;
 
     @FXML
     private Button listFurniture;

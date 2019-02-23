@@ -1,19 +1,11 @@
 package sample.controllers;
 
-import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
-
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.image.ImageView;
-import javafx.stage.Stage;
-import sample.Helper;
 import sample.Service;
+
+import java.util.prefs.Preferences;
 
 /**
  * Date: 11.02.2019 (понедельник)
@@ -25,13 +17,7 @@ import sample.Service;
 public class ManagerScreenController {
 
     @FXML
-    private ResourceBundle resources;
-
-    @FXML
-    private URL location;
-
-    @FXML
-    private Label labelWelcome;
+    public Button listProducts;
 
     @FXML
     private Button buttonExit;
@@ -40,13 +26,17 @@ public class ManagerScreenController {
     private Button listOrders;
 
     @FXML
-    private ImageView logo;
-
-    @FXML
     private Button toDoOrder;
 
     @FXML
     void initialize() {
+
+        //Обработка нажатия на кнопку "Список изделий"
+        listProducts.setOnAction(event -> {
+            listProducts.getScene().getWindow().hide();
+            new Service().changeScreen("/sample/view/listProducts.fxml", "Список изделий");
+        });
+
         //Обработка нажатия на кнопку "Список заказов"
         listOrders.setOnAction(event -> {
             listOrders.getScene().getWindow().hide();

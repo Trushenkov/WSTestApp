@@ -1,20 +1,10 @@
 package sample.controllers;
 
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.image.ImageView;
-import javafx.stage.Stage;
-import sample.DataBaseHandler;
-import sample.Helper;
 import sample.Service;
 
-import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
 import java.util.prefs.BackingStoreException;
 import java.util.prefs.Preferences;
 
@@ -28,15 +18,6 @@ import java.util.prefs.Preferences;
 public class WelcomeController {
 
     @FXML
-    private ResourceBundle resources;
-
-    @FXML
-    private URL location;
-
-    @FXML
-    private Label labelWelcome;
-
-    @FXML
     private Label loginAsField;
 
     @FXML
@@ -44,9 +25,6 @@ public class WelcomeController {
 
     @FXML
     private Label passwordAsField;
-
-    @FXML
-    private ImageView logo;
 
     @FXML
     void initialize() {

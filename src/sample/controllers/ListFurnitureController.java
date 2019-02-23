@@ -1,24 +1,19 @@
 package sample.controllers;
 
-import java.net.URL;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.util.ResourceBundle;
-
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.image.ImageView;
 import sample.Const;
 import sample.DataBaseHandler;
+import sample.Service;
 import sample.entities.Furniture;
-import sample.entities.Material;
+
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 /**
  * Date: 15.02.2019 (пятница)
@@ -30,19 +25,10 @@ import sample.entities.Material;
 public class ListFurnitureController {
 
     @FXML
-    private ResourceBundle resources;
-
-    @FXML
-    private URL location;
-
-    @FXML
     private TableColumn<Furniture, String> widthColumn;
 
     @FXML
     private TableColumn<Furniture, String> imageColumn;
-
-    @FXML
-    private Label labelScreen;
 
     @FXML
     private TableView<Furniture> tableView;
@@ -66,19 +52,12 @@ public class ListFurnitureController {
     private Button backButton;
 
     @FXML
-    private ImageView logo;
-
-    @FXML
     private TableColumn<Furniture, String> weigthColumn;
 
     @FXML
     private TableColumn<Furniture, Integer> priceColumn;
 
     private static final String SELECT = "select * from " + Const.TABLE_FURNITURE;
-
-    private ObservableList<Furniture> list;
-
-    private Furniture furniture;
 
     @FXML
     void initialize() {
@@ -93,17 +72,16 @@ public class ListFurnitureController {
         imageColumn.setCellValueFactory(new PropertyValueFactory<>("image"));
         priceColumn.setCellValueFactory(new PropertyValueFactory<>("price"));
 
-        list = FXCollections.observableArrayList();
+        ObservableList<Furniture> list = FXCollections.observableArrayList();
 
         try {
             DataBaseHandler dbhandler = new DataBaseHandler();
 
-            Connection conn = dbhandler.getDbConnection();
-            PreparedStatement ps = conn.prepareStatement(SELECT);
+            PreparedStatement ps = dbhandler.getDbConnection().prepareStatement(SELECT);
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
-                furniture = new Furniture(rs.getString("Артикул фурнитуры"),
+                Furniture furniture = new Furniture(rs.getString("Артикул фурнитуры"),
                         rs.getString("Наименование"),
                         rs.getString("Тип"),
                         rs.getString("Длина, мм"),
@@ -122,6 +100,15 @@ public class ListFurnitureController {
 
         tableView.setItems(list);
 
+        backButton.setOnAction(event -> {
+            backButton.getScene().getWindow().hide();
+            new Service().changeScreen("/sample/view/storekeeperScreen.fxml","Экран кладовщика");
+        });
 
+        //Обработка нажатия на кнопку "Выход"
+        exitButton.setOnAction(event -> {
+            exitButton.getScene().getWindow().hide();
+            new Service().changeScreen("/sample/view/login.fxml", "Авторизация");
+        });
     }
 }

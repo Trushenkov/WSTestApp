@@ -146,8 +146,6 @@ public class ListMaterialsController {
         exitButton.setOnAction(event -> {
             exitButton.getScene().getWindow().hide();
             new Service().changeScreen("/sample/view/login.fxml", "Авторизация");
-//            Material selectedMaterial = tableView.getSelectionModel().getSelectedItem();
-//            System.out.println(selectedMaterial);
         });
 
         //Обработка нажатия на кнопку "Назад"

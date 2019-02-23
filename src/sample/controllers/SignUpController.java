@@ -1,21 +1,13 @@
 package sample.controllers;
 
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.image.ImageView;
 import sample.DataBaseHandler;
 import sample.Service;
 import sample.entities.User;
-
-import java.net.URL;
-import java.util.ResourceBundle;
-import java.util.regex.Pattern;
 
 /**
  * Класс-контроллер для окна "Test Application - SignUp"
@@ -25,22 +17,10 @@ import java.util.regex.Pattern;
 public class SignUpController {
 
     @FXML
-    private ResourceBundle resources;
-
-    @FXML
-    private URL location;
-
-    @FXML
-    private Button buttonSignUp;
-
-    @FXML
     private Button btnLogin;
 
     @FXML
     private TextField nameTextField;
-
-    @FXML
-    private ImageView logo;
 
     @FXML
     private PasswordField passwordField;
@@ -50,9 +30,6 @@ public class SignUpController {
 
     @FXML
     private TextField loginTextField;
-
-    @FXML
-    private Label labelSignUp;
 
     @FXML
     void initialize() {
@@ -78,7 +55,6 @@ public class SignUpController {
         User user = new User(login, password, role, name);
 
         dbHandler.signUpUser(user, actionEvent);
-
     }
 
     public void signUpAction(ActionEvent actionEvent) {
