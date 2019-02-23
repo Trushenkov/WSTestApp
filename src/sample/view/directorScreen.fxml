@@ -16,7 +16,7 @@
                   <Image url="@../images/nba-logo.png" />
                </image>
             </ImageView>
-            <Button fx:id="buttonExit" layoutX="813.0" layoutY="75.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="230.0" text="Выход" textFill="#796c6c">
+            <Button fx:id="btnExit" layoutX="813.0" layoutY="75.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="230.0" text="Выход" textFill="#796c6c">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
@@ -31,5 +31,13 @@
             <Font name="MS Reference Sans Serif" size="24.0" />
          </font>
       </Label>
+      <Button fx:id="listProductsBtn" layoutX="435.0" layoutY="325.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="230.0" text="Список изделий" textFill="#796c6c">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font name="Microsoft Sans Serif" size="18.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

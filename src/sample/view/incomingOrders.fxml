@@ -43,10 +43,10 @@
             <Font name="Microsoft Sans Serif" size="18.0" />
          </font>
       </Button>
-      <TextField fx:id="material" layoutX="215.0" layoutY="215.0" promptText="Закупаемый материал" />
-      <TextField fx:id="count" layoutX="448.0" layoutY="215.0" promptText="Количество" />
-      <TextField fx:id="purchasePrice" layoutX="669.0" layoutY="215.0" promptText="Закупочная цена" />
-      <TextField fx:id="sum" disable="true" layoutX="887.0" layoutY="215.0" promptText="Сумма" />
+      <ComboBox fx:id="material" layoutX="215.0" layoutY="215.0" promptText="Закупаемый материал" />
+      <TextField fx:id="count" layoutX="480.0" layoutY="215.0" promptText="Количество" />
+      <TextField fx:id="purchasePrice" layoutX="692.0" layoutY="215.0" promptText="Закупочная цена" />
+      <TextField fx:id="sum" disable="true" layoutX="900.0" layoutY="215.0" promptText="Сумма" />
       <Button fx:id="addBtn" layoutX="427.0" layoutY="275.0" mnemonicParsing="false" onAction="#addButtonEvent" prefHeight="31.0" prefWidth="230.0" text="Добавить" />
       <Button fx:id="saveBtn" layoutX="785.0" layoutY="628.0" mnemonicParsing="false" onAction="#saveDataToDB" prefHeight="31.0" prefWidth="230.0" text="Провести" />
       <ComboBox fx:id="provider" layoutX="43.0" layoutY="215.0" prefWidth="150.0" promptText="Поставщик" />

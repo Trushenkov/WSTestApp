@@ -31,7 +31,7 @@
             <Font name="MS Reference Sans Serif" size="24.0" />
          </font>
       </Label>
-      <Button fx:id="listOrders" layoutX="435.0" layoutY="350.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="230.0" text="Список заказов" textFill="#796c6c">
+      <Button fx:id="listOrders" layoutX="435.0" layoutY="434.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="230.0" text="Список заказов" textFill="#796c6c">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
@@ -39,7 +39,15 @@
             <Font name="Microsoft Sans Serif" size="18.0" />
          </font>
       </Button>
-      <Button fx:id="toDoOrder" layoutX="435.0" layoutY="429.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="230.0" text="Оформление заказа" textFill="#796c6c">
+      <Button fx:id="toDoOrder" layoutX="435.0" layoutY="513.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="230.0" text="Оформление заказа" textFill="#796c6c">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font name="Microsoft Sans Serif" size="18.0" />
+         </font>
+      </Button>
+      <Button fx:id="listProducts" layoutX="435.0" layoutY="350.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="230.0" text="Список изделий" textFill="#796c6c">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>

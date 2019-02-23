@@ -19,4 +19,6 @@ public class Const {
     public static final String TABLE_MATERIAL = "материал";
     public static final String INCOMING_MATERIALS = "поступаемые материалы";
     public static final String TABLE_FURNITURE = "фурнитура";
+    public static final String TABLE_PRODUCTS = "изделие";
+    public static final String TABLE_ORDERS = "заказ";
 }
