@@ -1,6 +1,8 @@
 package sample.entities;
 
 /**
+ * Класс для создания сущности для таблицы "Фурнитура"
+ * <p>
  * Date: 15.02.2019 (пятница)
  * Project name: TestApplication
  * Package name: sample.entities

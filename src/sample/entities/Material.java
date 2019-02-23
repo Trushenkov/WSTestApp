@@ -1,6 +1,8 @@
 package sample.entities;
 
 /**
+ * Класс сущности для таблицы "Материал"
+ * <p>
  * Date: 12.02.2019 (вторник)
  * Project name: TestApplication
  * Package name: sample
@@ -34,6 +36,10 @@ public class Material {
     }
 
     public Material() {
+    }
+
+    public Material(String name) {
+        this.name = name;
     }
 
     public String getArticul() {

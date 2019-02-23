@@ -4,7 +4,7 @@ import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 
 /**
- * Класс для создания сущности для таблицы "Поступаемые заказы"
+ * Класс сущности для таблицы "Поступаемые заказы"
  * <p>
  * Date: 14.02.2019 (четверг)
  * Project name: TestApplication
