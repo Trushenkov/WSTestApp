@@ -134,14 +134,16 @@ public class IncomingMaterialsController {
             try {
                 countt = Integer.parseInt(newValue);
                 sum.setText(String.valueOf(countt * pricee));
-            } catch (Exception ignored) {}
+            } catch (Exception ignored) {
+            }
         });
 
         purchasePrice.textProperty().addListener((observable, oldValue, newValue) -> {
             try {
                 pricee = Integer.parseInt(newValue);
                 sum.setText(String.valueOf(countt * pricee));
-            } catch (Exception ignored) {}
+            } catch (Exception ignored) {
+            }
         });
 
         provider.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {

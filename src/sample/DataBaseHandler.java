@@ -1,13 +1,9 @@
 package sample;
 
+import javafx.event.ActionEvent;
 import sample.entities.User;
 
-import javafx.event.ActionEvent;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
-import java.sql.ResultSet;
+import java.sql.*;
 
 /**
  * Класс для подключения и работы с базой данных.

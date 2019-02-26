@@ -1,11 +1,12 @@
 package sample.controllers.alerts;
 
-import java.net.URL;
-import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
+
+import java.net.URL;
+import java.util.ResourceBundle;
 
 /**
  * Date: 15.02.2019 (пятница)

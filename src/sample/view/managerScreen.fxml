@@ -2,36 +2,64 @@
 
 <?import java.lang.*?>
 <?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.*?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.ManagerScreenController">
-   <children>
-      <AnchorPane id="anchor" prefHeight="200.0" prefWidth="1100.0">
-         <children>
-            <ImageView fx:id="logo" fitHeight="186.0" fitWidth="191.0" layoutX="7.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../images/nba-logo.png" />
-               </image>
-            </ImageView>
-            <Button fx:id="buttonExit" layoutX="813.0" layoutY="75.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="230.0" text="Выход" textFill="#796c6c">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-               <font>
-                  <Font name="Microsoft Sans Serif" size="18.0" />
-               </font>
-            </Button>
-         </children>
-      </AnchorPane>
-      <Label fx:id="labelWelcome" layoutX="413.0" layoutY="254.0" prefHeight="48.0" prefWidth="274.0" text="Страница менеджера" textFill="#796c6c">
-         <font>
-            <Font name="MS Reference Sans Serif" size="24.0" />
-         </font>
-      </Label>
-      <Button fx:id="listOrders" layoutX="435.0" layoutY="434.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="230.0" text="Список заказов" textFill="#796c6c">
+    <children>
+        <AnchorPane id="anchor" prefHeight="200.0" prefWidth="1100.0">
+            <children>
+                <ImageView fx:id="logo" fitHeight="186.0" fitWidth="191.0" layoutX="7.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../images/nba-logo.png" />
+                    </image>
+                </ImageView>
+                <Button fx:id="buttonExit" layoutX="813.0" layoutY="75.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="230.0" text="Выход" textFill="#796c6c">
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                    <font>
+                        <Font name="Microsoft Sans Serif" size="18.0" />
+                    </font>
+                </Button>
+            </children>
+        </AnchorPane>
+        <Label fx:id="labelWelcome" layoutX="413.0" layoutY="254.0" prefHeight="48.0" prefWidth="274.0" text="Страница менеджера" textFill="#796c6c">
+            <font>
+                <Font name="MS Reference Sans Serif" size="24.0" />
+            </font>
+        </Label>
+        <Button fx:id="listOrders" layoutX="421.0" layoutY="425.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="255.0" text="Список заказов" textFill="#796c6c">
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+            <font>
+                <Font name="Microsoft Sans Serif" size="18.0" />
+            </font>
+        </Button>
+        <Button fx:id="toDoOrder" layoutX="424.0" layoutY="504.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="255.0" text="Оформить заказ" textFill="#796c6c">
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+            <font>
+                <Font name="Microsoft Sans Serif" size="18.0" />
+            </font>
+        </Button>
+        <Button fx:id="listProducts" layoutX="421.0" layoutY="341.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="255.0" text="Список изделий" textFill="#796c6c">
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+            <font>
+                <Font name="Microsoft Sans Serif" size="18.0" />
+            </font>
+        </Button>
+      <Button fx:id="evaluationCostsFurniture" layoutX="424.0" layoutY="584.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="255.0" text="Оценка затрат фурнитуры" textFill="#796c6c">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
@@ -39,21 +67,5 @@
             <Font name="Microsoft Sans Serif" size="18.0" />
          </font>
       </Button>
-      <Button fx:id="toDoOrder" layoutX="435.0" layoutY="513.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="230.0" text="Оформление заказа" textFill="#796c6c">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-         <font>
-            <Font name="Microsoft Sans Serif" size="18.0" />
-         </font>
-      </Button>
-      <Button fx:id="listProducts" layoutX="435.0" layoutY="350.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="230.0" text="Список изделий" textFill="#796c6c">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-         <font>
-            <Font name="Microsoft Sans Serif" size="18.0" />
-         </font>
-      </Button>
-   </children>
+    </children>
 </AnchorPane>

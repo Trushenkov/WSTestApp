@@ -9,7 +9,6 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
-import sample.Const;
 import sample.DataBaseHandler;
 import sample.Service;
 import sample.entities.Order;
@@ -17,7 +16,6 @@ import sample.entities.Order;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.Statement;
 
 /**
  * Date: 12.02.2019 (вторник)
@@ -28,40 +26,29 @@ import java.sql.Statement;
  */
 public class ListOrdersController {
 
+    private static final String SELECT = "select `public`.`заказ`.`Номер заказа`,`Дата`,`Этап выполнения`,`Заказчик`,`Менеджер`,`Количество` from `public`.`заказанные изделия`, `public`.`заказ` where `public`.`заказанные изделия`.`Номер заказа` = `public`.`заказ`.`Номер заказа` ;";
     @FXML
     private Button btnBack;
-
     @FXML
     private TableColumn<Order, Integer> countColumn;
-
     @FXML
     private Label labelScreen;
-
     @FXML
     private TableColumn<Order, String> stepColumn;
-
     @FXML
     private Button buttonExit;
-
     @FXML
     private TableColumn<Order, String> managerColumn;
-
     @FXML
     private ImageView logo;
-
     @FXML
     private TableColumn<Order, Date> dateColumn;
-
     @FXML
     private TableColumn<Order, Integer> numberColumn;
-
     @FXML
     private TableView<Order> table;
-
     @FXML
     private TableColumn<Order, String> orderColumn;
-
-    private static final String SELECT = "select `public`.`заказ`.`Номер заказа`,`Дата`,`Этап выполнения`,`Заказчик`,`Менеджер`,`Количество` from `public`.`заказанные изделия`, `public`.`заказ` where `public`.`заказанные изделия`.`Номер заказа` = `public`.`заказ`.`Номер заказа` ;";
 
 //    public static final String SELECT_COUNT = "select `Количество` ";
 
@@ -94,7 +81,7 @@ public class ListOrdersController {
                         rs.getString("Заказчик"),
                         rs.getString("Менеджер"),
                         rs.getInt("Количество")
-                        );
+                );
 
                 list.add(order);
             }

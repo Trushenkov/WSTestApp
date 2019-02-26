@@ -11,7 +11,7 @@ public interface Helper {
     /**
      * Метод для перехода на другое окно приложения
      *
-     * @param path путь к fxml файлу
+     * @param path  путь к fxml файлу
      * @param title заголовок окна
      */
     void changeScreen(String path, String title);

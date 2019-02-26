@@ -17,6 +17,7 @@ public class Order {
     private String order;
     private String manager;
     private int count;
+    private int summa;
 
     public Order(int number, Date date, String step, String order, String manager, int count) {
         this.number = number;
@@ -27,15 +28,50 @@ public class Order {
         this.count = count;
     }
 
+    public Order(int number, Date date, String step, String order, String manager, int count, int summa) {
+        this.number = number;
+        this.date = date;
+        this.step = step;
+        this.order = order;
+        this.manager = manager;
+        this.count = count;
+        this.summa = summa;
+    }
+
+    public Order(Date date, int number, String step, String order, String manager, int summa) {
+        this.number = number;
+        this.date = date;
+        this.step = step;
+        this.order = order;
+        this.manager = manager;
+        this.summa = summa;
+    }
+
+    public Order(Date date, String step, String order, String manager, int summa) {
+        this.date = date;
+        this.step = step;
+        this.order = order;
+        this.manager = manager;
+        this.summa = summa;
+    }
+
+    public Order() {
+    }
+
+    public int getSumma() {
+        return summa;
+    }
+
+    public void setSumma(int summa) {
+        this.summa = summa;
+    }
+
     public int getCount() {
         return count;
     }
 
     public void setCount(int count) {
         this.count = count;
-    }
-
-    public Order() {
     }
 
     public int getNumber() {
@@ -78,16 +114,28 @@ public class Order {
         this.manager = manager;
     }
 
-
     @Override
     public String toString() {
-        return "Order{" +
-                "number=" + number +
-                ", date=" + date +
-                ", step='" + step + '\'' +
-                ", order='" + order + '\'' +
-                ", manager='" + manager + '\'' +
-                ", count=" + count +
+        return "Заказ {" +
+                "Номер заказа: " + number +
+                ", Дата: " + date +
+                ", Этап выполнения: '" + step + '\'' +
+                ", Заказчик: '" + order + '\'' +
+                ", Менеджер: '" + manager + '\'' +
+                ", Количество изделий: " + count +
+                ", Стоимость: " + summa +
                 '}';
     }
+
+//    @Override
+//    public String toString() {
+//        return "Order{" +
+//                "number=" + number +
+//                ", date=" + date +
+//                ", step='" + step + '\'' +
+//                ", order='" + order + '\'' +
+//                ", manager='" + manager + '\'' +
+//                ", count=" + count +
+//                '}';
+//    }
 }

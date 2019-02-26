@@ -3,18 +3,13 @@ package sample.controllers;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.image.ImageView;
-import javafx.util.converter.IntegerStringConverter;
 import sample.Const;
 import sample.DataBaseHandler;
-import sample.entities.Material;
 import sample.Service;
+import sample.entities.Material;
 
 import java.net.URL;
 import java.sql.Connection;
@@ -31,75 +26,43 @@ import java.util.ResourceBundle;
  */
 public class ListMaterialsController {
 
+    private static final String SELECT = "select * from " + Const.TABLE_MATERIAL;
     @FXML
     private ResourceBundle resources;
-
     @FXML
     private URL location;
-
     @FXML
     private Button exitButton;
-
     @FXML
     private Button backButton;
-
     @FXML
     private Label labelWelcome;
-
     @FXML
     private TableColumn<Material, String> articul;
-
     @FXML
     private TableColumn<Material, String> name;
-
     @FXML
     private TableColumn<Material, String> marka;
-
     @FXML
     private TableColumn<Material, String> color;
-
     @FXML
     private TableColumn<Material, Integer> length;
-
     @FXML
     private TableColumn<Material, Integer> width;
-
     @FXML
     private TableColumn<Material, Integer> price;
-
     @FXML
     private TableView<Material> tableView;
 
+//    private ObservableList<ObservableList> data;
     @FXML
     private ImageView logo;
-
-//    private ObservableList<ObservableList> data;
-
-    private static final String SELECT = "select * from " + Const.TABLE_MATERIAL;
-
     private ObservableList<Material> list;
 
     private Material material;
 
     @FXML
     void initialize() {
-
-        //Для редактирования таблицы
-//        tableView.setEditable(true);
-//        articul.setCellFactory(TextFieldTableCell
-//                .forTableColumn());
-//        name.setCellFactory(TextFieldTableCell
-//                .forTableColumn());
-//        marka.setCellFactory(TextFieldTableCell
-//                .forTableColumn());
-//        color.setCellFactory(TextFieldTableCell
-//                .forTableColumn());
-//        length.setCellFactory(TextFieldTableCell
-//                .forTableColumn(new IntegerStringConverter()));
-//        width.setCellFactory(TextFieldTableCell
-//                .forTableColumn(new IntegerStringConverter()));
-//        price.setCellFactory(TextFieldTableCell
-//                .forTableColumn(new IntegerStringConverter()));
 
         //Определение полей таблицы и соответствие полям объекта Material
         articul.setCellValueFactory(new PropertyValueFactory<>("articul"));

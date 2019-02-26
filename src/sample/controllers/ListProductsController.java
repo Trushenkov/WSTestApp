@@ -26,37 +26,27 @@ import java.util.prefs.Preferences;
  */
 public class ListProductsController {
 
+    private static final String SELECT = "select * from " + Const.TABLE_PRODUCTS;
     @FXML
     private Button exitButton;
-
     @FXML
     private TableColumn<Product, Integer> widthColumn;
-
     @FXML
     private TableColumn<Product, Integer> heightColumn;
-
     @FXML
     private TableColumn<Product, String> imageColumn;
-
     @FXML
     private TableColumn<Product, String> nameColumn;
-
     @FXML
     private Button backButton;
-
     @FXML
     private TableView<Product> tableView;
-
     @FXML
     private TableColumn<Product, String> commentColumn;
-
     @FXML
     private TableColumn<Product, Integer> lengthColumn;
-
     @FXML
     private TableColumn<Product, Integer> articulColumn;
-
-    private static final String SELECT = "select * from " + Const.TABLE_PRODUCTS;
     private String pathToParentWindow = "";
 
     @FXML

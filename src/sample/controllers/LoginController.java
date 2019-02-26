@@ -3,11 +3,15 @@ package sample.controllers;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import sample.Const;
 import sample.DataBaseHandler;
 import sample.Service;
+import sample.animation.Shake;
 import sample.entities.User;
 
 import java.sql.ResultSet;
@@ -33,33 +37,26 @@ public class LoginController {
     @FXML
     private TextField loginTextField;
 
+    @FXML
+    private Label labelBadLoginData;
+
     private int countOfUsers = 0;
 
     @FXML
     void initialize() {
+        labelBadLoginData.setVisible(false);
         loginTextField.setText("");
         passwordTextField.setText("");
+
         //Обработка нажатия на кнопку "Регистрация"
         buttonSignUp.setOnAction(event -> {
             buttonSignUp.getScene().getWindow().hide();
             new Service().changeScreen("/sample/view/signUp.fxml", "Регистрация");
         });
 
-        //Обработка нажатия на кнопку "Войти"
-//        buttonLogin.setOnAction(event -> {
-//            String loginText = loginTextField.getText().trim();
-//            String passwordText = passwordTextField.getText().trim();
-//
-//            if (!loginTextField.equals("") && !passwordTextField.equals("")) {
-//                try {
-//                    loginUser(loginText, passwordText); // Проверка на сущ. такого пользователя в БД
-//                } catch (SQLException e) {
-//                    e.printStackTrace();
-//                }
-//            } else {
-//                System.out.println("Login and password is empty");
-//            }
-//        });
+        buttonLogin.setOnKeyPressed(event -> {
+            if (event.getCode() == KeyCode.ENTER);
+        });
     }
 
     /**
@@ -82,6 +79,7 @@ public class LoginController {
                 preferences.put("user_login", resultSet.getString(Const.USER_LOGIN));
                 preferences.put("user_password", resultSet.getString(Const.USER_PASSWORD));
                 preferences.put("user_role", resultSet.getString(Const.USER_ROLE));
+                preferences.put("user_name", resultSet.getString(Const.USER_NAME));
 
                 switch (resultSet.getString(Const.USER_ROLE)) {
                     case "Заказчик":
@@ -105,7 +103,14 @@ public class LoginController {
             }
 
             if (countOfUsers == 0) {
-                new Service().changeScreenModalWindow("/sample/view/alerts/alertBadLogin.fxml", "Ошибка входа", actionEvent);
+                Shake userLoginAnimation = new Shake(loginTextField);
+                Shake userPasswordAnimation = new Shake(passwordTextField);
+
+                userLoginAnimation.playAnimation();
+                userPasswordAnimation.playAnimation();
+
+                labelBadLoginData.setVisible(true);
+//                new Service().hangeScreenModalWindow("/sample/view/alerts/alertBadLogin.fxml", "Ошибка входа", actionEvent);
             }
 
 

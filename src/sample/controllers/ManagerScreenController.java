@@ -1,11 +1,8 @@
 package sample.controllers;
 
 import javafx.fxml.FXML;
-import javafx.scene.Node;
 import javafx.scene.control.Button;
 import sample.Service;
-
-import java.util.prefs.Preferences;
 
 /**
  * Date: 11.02.2019 (понедельник)
@@ -29,6 +26,9 @@ public class ManagerScreenController {
     private Button toDoOrder;
 
     @FXML
+    private Button evaluationCostsFurniture;
+
+    @FXML
     void initialize() {
 
         //Обработка нажатия на кнопку "Список изделий"
@@ -46,7 +46,13 @@ public class ManagerScreenController {
         //Обработка нажатия на кнопку "Оформление заказа"
         toDoOrder.setOnAction(event -> {
             toDoOrder.getScene().getWindow().hide();
-            new Service().changeScreen("/sample/view/toDoOrderScreen.fxml", "Оформление заказа");
+            new Service().changeScreen("/sample/view/todoorder.fxml", "Оформление заказа");
+        });
+
+        //Обработка нажатия на кнопку "Оценка затрат фурнитуры"
+        evaluationCostsFurniture.setOnAction(event -> {
+            evaluationCostsFurniture.getScene().getWindow().hide();
+            new Service().changeScreen("/sample/view/evaluationCosts.fxml", "Оценка затрат фурнитуры");
         });
 
         //Обработка нажатия на кнопку "Выход"

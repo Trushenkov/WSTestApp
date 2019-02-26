@@ -1,14 +1,14 @@
 package sample.controllers;
 
-import java.net.URL;
-import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
-import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import sample.Service;
+
+import java.net.URL;
+import java.util.ResourceBundle;
 
 /**
  * Date: 11.02.2019 (понедельник)
@@ -48,7 +48,7 @@ public class DirectorScreenController {
         //Обработка нажатия на кнопку "Список изделий"
         listProductsBtn.setOnAction(event -> {
             ((Node) event.getSource()).getScene().getWindow().hide();
-            new Service().changeScreen("/sample/view/listProducts.fxml","Список изделий");
+            new Service().changeScreen("/sample/view/listProducts.fxml", "Список изделий");
         });
     }
 

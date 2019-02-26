@@ -3,7 +3,8 @@ package tests;
 import org.junit.Test;
 import sample.entities.User;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 /**
  * Date: 15.02.2019 (пятница)

@@ -16,6 +16,8 @@ import java.util.prefs.Preferences;
  */
 public class OrderWindowController {
 
+    @FXML
+    private Button toDoOrderBtn;
 
     @FXML
     private Label passwordTextField;
@@ -38,6 +40,11 @@ public class OrderWindowController {
         buttonExit.setOnAction(event -> {
             buttonExit.getScene().getWindow().hide();
             new Service().changeScreen("/sample/view/login.fxml", "Авторизация");
+        });
+
+        toDoOrderBtn.setOnAction(event -> {
+            toDoOrderBtn.getScene().getWindow().hide();
+            new Service().changeScreen("/sample/view/todoorder.fxml", "Оформить заказ");
         });
     }
 

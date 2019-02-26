@@ -1,47 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.SignUpController">
-   <children>
-      <Button fx:id="buttonSignUp" onAction="#signUpAction" layoutX="435.0" layoutY="598.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="230.0" style="-fx-background-color: #2e3348;" text="Зарегистрироваться" textFill="WHITE">
-         <font>
-            <Font name="Microsoft Sans Serif" size="18.0" />
-         </font>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </Button>
-      <TextField fx:id="loginTextField" layoutX="350.0" layoutY="299.0" prefHeight="48.0" prefWidth="400.0" promptText="Логин" />
-      <AnchorPane id="anchor" prefHeight="200.0" prefWidth="1100.0">
-         <children>
-            <ImageView fx:id="logo" fitHeight="186.0" fitWidth="191.0" layoutX="7.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../images/nba-logo.png" />
-               </image>
-            </ImageView>
-            <Button fx:id="btnLogin" layoutX="815.0" layoutY="75.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="230.0" text="Авторизация" textFill="#796c6c">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-               <font>
-                  <Font name="Microsoft Sans Serif" size="18.0" />
-               </font>
-            </Button>
-         </children>
-      </AnchorPane>
-      <Label fx:id="labelSignUp" layoutX="465.0" layoutY="218.0" prefHeight="48.0" prefWidth="170.0" text="Регистрация" textFill="#796c6c">
-         <font>
-            <Font name="MS Reference Sans Serif" size="24.0" />
-         </font>
-      </Label>
-      <PasswordField fx:id="passwordField" layoutX="350.0" layoutY="366.0" prefHeight="48.0" prefWidth="400.0" promptText="Пароль" />
-      <TextField fx:id="nameTextField" layoutX="350.0" layoutY="498.0" prefHeight="48.0" prefWidth="400.0" promptText="Наименование" />
-      <TextField fx:id="roleTextField" disable="true" layoutX="350.0" layoutY="430.0" prefHeight="48.0" prefWidth="400.0" promptText="Логин" text="Заказчик" />
-   </children>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+            minWidth="-Infinity"
+            prefHeight="700.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/8"
+            fx:controller="sample.controllers.SignUpController">
+    <children>
+        <Button fx:id="buttonSignUp" onAction="#signUpAction" layoutX="435.0" layoutY="598.0" mnemonicParsing="false"
+                prefHeight="50.0" prefWidth="230.0" style="-fx-background-color: #2e3348;" text="Зарегистрироваться"
+                textFill="WHITE">
+            <font>
+                <Font name="Microsoft Sans Serif" size="18.0"/>
+            </font>
+            <cursor>
+                <Cursor fx:constant="HAND"/>
+            </cursor>
+        </Button>
+        <TextField fx:id="loginTextField" layoutX="350.0" layoutY="299.0" prefHeight="48.0" prefWidth="400.0"
+                   promptText="Логин"/>
+        <AnchorPane id="anchor" prefHeight="200.0" prefWidth="1100.0">
+            <children>
+                <ImageView fx:id="logo" fitHeight="186.0" fitWidth="191.0" layoutX="7.0" layoutY="7.0"
+                           pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../images/nba-logo.png"/>
+                    </image>
+                </ImageView>
+                <Button fx:id="btnLogin" layoutX="815.0" layoutY="75.0" mnemonicParsing="false" prefHeight="50.0"
+                        prefWidth="230.0" text="Авторизация" textFill="#796c6c">
+                    <cursor>
+                        <Cursor fx:constant="HAND"/>
+                    </cursor>
+                    <font>
+                        <Font name="Microsoft Sans Serif" size="18.0"/>
+                    </font>
+                </Button>
+            </children>
+        </AnchorPane>
+        <Label fx:id="labelSignUp" layoutX="465.0" layoutY="218.0" prefHeight="48.0" prefWidth="170.0"
+               text="Регистрация" textFill="#796c6c">
+            <font>
+                <Font name="MS Reference Sans Serif" size="24.0"/>
+            </font>
+        </Label>
+        <PasswordField fx:id="passwordField" layoutX="350.0" layoutY="366.0" prefHeight="48.0" prefWidth="400.0"
+                       promptText="Пароль"/>
+        <TextField fx:id="nameTextField" layoutX="350.0" layoutY="498.0" prefHeight="48.0" prefWidth="400.0"
+                   promptText="Наименование"/>
+        <TextField fx:id="roleTextField" disable="true" layoutX="350.0" layoutY="430.0" prefHeight="48.0"
+                   prefWidth="400.0" promptText="Логин" text="Заказчик"/>
+    </children>
 </AnchorPane>

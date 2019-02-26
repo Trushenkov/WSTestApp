@@ -41,60 +41,60 @@ public class IncomingMaterial {
         return provider.get();
     }
 
-    public SimpleStringProperty providerProperty() {
-        return provider;
-    }
-
     public void setProvider(String provider) {
         this.provider.set(provider);
+    }
+
+    public SimpleStringProperty providerProperty() {
+        return provider;
     }
 
     public String getMaterial() {
         return material.get();
     }
 
-    public SimpleStringProperty materialProperty() {
-        return material;
-    }
-
     public void setMaterial(String material) {
         this.material.set(material);
+    }
+
+    public SimpleStringProperty materialProperty() {
+        return material;
     }
 
     public int getCount() {
         return count.get();
     }
 
-    public SimpleIntegerProperty countProperty() {
-        return count;
-    }
-
     public void setCount(int count) {
         this.count.set(count);
+    }
+
+    public SimpleIntegerProperty countProperty() {
+        return count;
     }
 
     public int getPurchasePrice() {
         return purchasePrice.get();
     }
 
-    public SimpleIntegerProperty purchasePriceProperty() {
-        return purchasePrice;
-    }
-
     public void setPurchasePrice(int purchasePrice) {
         this.purchasePrice.set(purchasePrice);
+    }
+
+    public SimpleIntegerProperty purchasePriceProperty() {
+        return purchasePrice;
     }
 
     public int getSum() {
         return sum.get();
     }
 
-    public SimpleIntegerProperty sumProperty() {
-        return sum;
-    }
-
     public void setSum(int sum) {
         this.sum.set(sum);
+    }
+
+    public SimpleIntegerProperty sumProperty() {
+        return sum;
     }
 
     @Override

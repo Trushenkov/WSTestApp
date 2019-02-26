@@ -24,40 +24,29 @@ import java.sql.ResultSet;
  */
 public class ListFurnitureController {
 
+    private static final String SELECT = "select * from " + Const.TABLE_FURNITURE;
     @FXML
     private TableColumn<Furniture, String> widthColumn;
-
     @FXML
     private TableColumn<Furniture, String> imageColumn;
-
     @FXML
     private TableView<Furniture> tableView;
-
     @FXML
     private TableColumn<Furniture, String> lengthColumn;
-
     @FXML
     private TableColumn<Furniture, String> articulColumn;
-
     @FXML
     private TableColumn<Furniture, String> typeColumn;
-
     @FXML
     private Button exitButton;
-
     @FXML
     private TableColumn<Furniture, String> nameColumn;
-
     @FXML
     private Button backButton;
-
     @FXML
     private TableColumn<Furniture, String> weigthColumn;
-
     @FXML
     private TableColumn<Furniture, Integer> priceColumn;
-
-    private static final String SELECT = "select * from " + Const.TABLE_FURNITURE;
 
     @FXML
     void initialize() {
@@ -102,7 +91,7 @@ public class ListFurnitureController {
 
         backButton.setOnAction(event -> {
             backButton.getScene().getWindow().hide();
-            new Service().changeScreen("/sample/view/storekeeperScreen.fxml","Экран кладовщика");
+            new Service().changeScreen("/sample/view/storekeeperScreen.fxml", "Экран кладовщика");
         });
 
         //Обработка нажатия на кнопку "Выход"
