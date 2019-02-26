@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+            prefHeight="700.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/8"
+            fx:controller="sample.controllers.OrderController">
+    <children>
+        <AnchorPane id="anchor" prefHeight="200.0" prefWidth="1100.0">
+            <children>
+                <ImageView fx:id="logo" fitHeight="186.0" fitWidth="191.0" layoutX="7.0" layoutY="7.0"
+                           pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../images/nba-logo.png"/>
+                    </image>
+                </ImageView>
+                <Button fx:id="buttonExit" layoutX="813.0" layoutY="75.0" mnemonicParsing="false" prefHeight="50.0"
+                        prefWidth="230.0" text="Выход" textFill="#796c6c">
+                    <cursor>
+                        <Cursor fx:constant="HAND"/>
+                    </cursor>
+                    <font>
+                        <Font name="Microsoft Sans Serif" size="18.0"/>
+                    </font>
+                </Button>
+            </children>
+        </AnchorPane>
+        <Label fx:id="label" layoutX="419.0" layoutY="228.0" prefHeight="48.0" prefWidth="262.0"
+               text="Оформление заказа" textFill="#796c6c">
+            <font>
+                <Font name="MS Reference Sans Serif" size="24.0"/>
+            </font>
+        </Label>
+        <Label fx:id="passwordTextField" layoutX="872.0" layoutY="654.0" text="Пароль: "/>
+        <Label fx:id="loginTextField" layoutX="872.0" layoutY="620.0" text="Логин: "/>
+        <Button fx:id="toDoOrderBtn" onAction="#saveToDb" layoutX="435.0" layoutY="620.0" mnemonicParsing="false"
+                prefHeight="50.0" prefWidth="230.0" text="Оформить заказ" textFill="#796c6c">
+            <cursor>
+                <Cursor fx:constant="HAND"/>
+            </cursor>
+            <font>
+                <Font name="Microsoft Sans Serif" size="18.0"/>
+            </font>
+        </Button>
+        <ComboBox fx:id="comboBox" layoutX="144.0" layoutY="294.0" prefHeight="25.0" prefWidth="297.0"/>
+        <TextField fx:id="countTextField" layoutX="466.0" layoutY="294.0" promptText="Количество"/>
+        <!--<TableView fx:id="tableView" layoutX="230.0" layoutY="342.0" prefHeight="200.0" prefWidth="646.0" AnchorPane.leftAnchor="230.0" AnchorPane.rightAnchor="230.0">-->
+        <!--<columns>-->
+        <!--<TableColumn fx:id="productColumn" prefWidth="350.0" text="Изделие" />-->
+        <!--<TableColumn fx:id="countColumn" prefWidth="163.0" text="Количество" />-->
+        <!--<TableColumn fx:id="priceColumn" prefWidth="141.0" text="Цена" />-->
+        <!--</columns>-->
+        <!--</TableView>-->
+        <TextField fx:id="priceTextField" layoutX="654.0" layoutY="294.0" promptText="Цена"/>
+        <Label fx:id="labelForSumma" layoutX="85.0" layoutY="565.0" text="Стоимость заказа: "
+               AnchorPane.leftAnchor="85.0">
+            <font>
+                <Font name="Microsoft Sans Serif" size="18.0"/>
+            </font>
+        </Label>
+        <Button fx:id="backButton" layoutY="666.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="118.0"
+                text="&lt; Назад" textFill="#796c6c" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0">
+            <cursor>
+                <Cursor fx:constant="HAND"/>
+            </cursor>
+            <font>
+                <Font name="Microsoft Sans Serif" size="18.0"/>
+            </font>
+        </Button>
+        <!--<Button fx:id="addBtn" onAction="#addButtonEvent" layoutX="846.0" layoutY="294.0" mnemonicParsing="false" text="Добавить в заказ" />-->
+        <Label fx:id="summa" layoutX="260.0" layoutY="565.0" prefHeight="21.0" prefWidth="163.0">
+            <font>
+                <Font name="Microsoft Sans Serif" size="18.0"/>
+            </font>
+        </Label>
+    </children>
+</AnchorPane>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.EvaluationCostsController">
+   <children>
+      <AnchorPane id="anchor" prefHeight="200.0" prefWidth="1100.0">
+         <children>
+            <ImageView fx:id="logo" fitHeight="186.0" fitWidth="191.0" layoutX="7.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/nba-logo.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="buttonExit" layoutX="813.0" layoutY="75.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="230.0" text="Выход" textFill="#796c6c">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <font>
+                  <Font name="Microsoft Sans Serif" size="18.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+      <Label fx:id="labelWelcome" layoutX="381.0" layoutY="228.0" prefHeight="48.0" prefWidth="336.0" text="Оценка затрат фурнитуры" textFill="#796c6c">
+         <font>
+            <Font name="MS Reference Sans Serif" size="24.0" />
+         </font>
+      </Label>
+      <ListView fx:id="listView" layoutX="111.0" layoutY="319.0" prefHeight="280.0" prefWidth="1000.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" />
+      <Label layoutX="312.0" layoutY="290.0" text="Выберите из списк заказ, чтобы посмотреть инормацию об оценке затрат фурнитуры" />
+      <Label fx:id="labelFurniture" layoutX="50.0" layoutY="625.0" text="Наличие фурнитуры:" />
+      <Label fx:id="labelCanNot" layoutX="338.0" layoutY="625.0" text="Не может быть выполнено: " textFill="RED" />
+      <Label fx:id="labelNotEnought" layoutX="639.0" layoutY="625.0" text="Недостаточно фурнитуры: " />
+      <Button fx:id="backButton" layoutY="659.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="118.0" text="&lt; Назад" textFill="#796c6c" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font name="Microsoft Sans Serif" size="18.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
