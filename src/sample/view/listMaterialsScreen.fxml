@@ -1,60 +1,75 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
-            minWidth="-Infinity"
-            prefHeight="700.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/8"
-            fx:controller="sample.controllers.ListMaterialsController">
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.ListMaterialsController">
     <children>
         <AnchorPane id="anchor" prefHeight="200.0" prefWidth="1100.0">
             <children>
-                <ImageView fx:id="logo" fitHeight="186.0" fitWidth="191.0" layoutX="7.0" layoutY="7.0"
-                           pickOnBounds="true" preserveRatio="true">
+                <ImageView fx:id="logo" fitHeight="186.0" fitWidth="191.0" layoutX="7.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@../images/nba-logo.png"/>
+                        <Image url="@../images/nba-logo.png" />
                     </image>
                 </ImageView>
-                <Button fx:id="exitButton" layoutX="813.0" layoutY="75.0" mnemonicParsing="false" prefHeight="50.0"
-                        prefWidth="230.0" text="Выход" textFill="#796c6c">
+                <Button fx:id="exitButton" layoutX="813.0" layoutY="75.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="230.0" text="Выход" textFill="#796c6c">
                     <cursor>
-                        <Cursor fx:constant="HAND"/>
+                        <Cursor fx:constant="HAND" />
                     </cursor>
                     <font>
-                        <Font name="Microsoft Sans Serif" size="18.0"/>
+                        <Font name="Microsoft Sans Serif" size="18.0" />
                     </font>
                 </Button>
             </children>
         </AnchorPane>
-        <TableView fx:id="tableView" layoutX="26.0" layoutY="268.0" prefHeight="370.0" prefWidth="1044.0">
+        <TableView fx:id="tableView" layoutX="26.0" layoutY="268.0" prefHeight="363.0" prefWidth="635.0">
             <columns>
-                <TableColumn fx:id="articul" prefWidth="123.0" text="Артикул"/>
-                <TableColumn fx:id="name" prefWidth="185.0" text="Наименование"/>
-                <TableColumn fx:id="marka" prefWidth="163.0" text="Марка"/>
-                <TableColumn fx:id="color" prefWidth="220.0" text="Цвет"/>
-                <TableColumn fx:id="length" prefWidth="123.0" text="Длина, мм"/>
-                <TableColumn fx:id="width" prefWidth="128.0" text="Ширина, мм"/>
-                <TableColumn fx:id="price" prefWidth="101.0" text="Цена"/>
+                <TableColumn fx:id="articul" prefWidth="76.0" text="Артикул" />
+                <TableColumn fx:id="name" prefWidth="125.0" text="Наименование" />
+                <TableColumn fx:id="marka" prefWidth="86.0" text="Марка" />
+                <TableColumn fx:id="color" prefWidth="73.0" text="Цвет" />
+                <TableColumn fx:id="length" prefWidth="93.0" text="Длина, мм" />
+                <TableColumn fx:id="width" prefWidth="109.0" text="Ширина, мм" />
+                <TableColumn fx:id="price" prefWidth="69.0" text="Цена" />
             </columns>
         </TableView>
-        <Label fx:id="labelWelcome" layoutX="422.0" layoutY="211.0" prefHeight="48.0" prefWidth="256.0"
-               text="Список материалов" textFill="#796c6c">
+        <Label fx:id="labelWelcome" layoutX="422.0" layoutY="211.0" prefHeight="48.0" prefWidth="256.0" text="Список материалов" textFill="#796c6c">
             <font>
-                <Font name="MS Reference Sans Serif" size="24.0"/>
+                <Font name="MS Reference Sans Serif" size="24.0" />
             </font>
         </Label>
-        <Button fx:id="backButton" layoutY="659.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="118.0"
-                text="&lt; Назад" textFill="#796c6c" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0">
+        <Button fx:id="backButton" layoutY="659.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="118.0" text="&lt; Назад" textFill="#796c6c" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0">
             <cursor>
-                <Cursor fx:constant="HAND"/>
+                <Cursor fx:constant="HAND" />
             </cursor>
             <font>
-                <Font name="Microsoft Sans Serif" size="18.0"/>
+                <Font name="Microsoft Sans Serif" size="18.0" />
             </font>
         </Button>
+      <TextField fx:id="searchTextField" layoutX="25.0" layoutY="220.0" promptText="Поиск" />
+      <TextField fx:id="tf_articul" layoutX="696.0" layoutY="268.0" promptText="Артикул" />
+      <TextField fx:id="tf_name" layoutX="696.0" layoutY="319.0" promptText="Наименование" />
+      <TextField fx:id="tf_marka" layoutX="696.0" layoutY="364.0" promptText="Марка" />
+      <TextField fx:id="tf_color" layoutX="696.0" layoutY="412.0" promptText="Цвет" />
+      <TextField fx:id="tf_length" layoutX="696.0" layoutY="462.0" promptText="Длина, мм" />
+      <TextField fx:id="tf_width" layoutX="696.0" layoutY="513.0" promptText="Ширина, мм" />
+      <TextField fx:id="tf_price" layoutX="696.0" layoutY="566.0" promptText="Цена" />
+      <Button fx:id="updateBtn" layoutX="722.0" layoutY="631.0" mnemonicParsing="false" onAction="#update" prefHeight="41.0" prefWidth="118.0" text="Обновить" textFill="#796c6c">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font name="Microsoft Sans Serif" size="18.0" />
+         </font>
+      </Button>
     </children>
 </AnchorPane>

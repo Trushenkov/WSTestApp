@@ -53,10 +53,6 @@ public class LoginController {
             buttonSignUp.getScene().getWindow().hide();
             new Service().changeScreen("/sample/view/signUp.fxml", "Регистрация");
         });
-
-        buttonLogin.setOnKeyPressed(event -> {
-            if (event.getCode() == KeyCode.ENTER);
-        });
     }
 
     /**
