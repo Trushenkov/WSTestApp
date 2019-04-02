@@ -1,58 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
-            prefHeight="700.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/8.0.121"
-            fx:controller="sample.controllers.LoginController">
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.LoginController">
     <children>
-        <Button fx:id="buttonLogin" layoutX="494.0" layoutY="593.0" mnemonicParsing="false"
-                onAction="#loginActionMethod" prefHeight="50.0" prefWidth="120.0" style="-fx-background-color: #2e3348;"
-                text="Войти" textFill="WHITE">
+        <Button fx:id="buttonLogin" layoutX="494.0" layoutY="593.0" mnemonicParsing="false" onAction="#loginActionMethod" onKeyPressed="#keyPressedMethod" prefHeight="50.0" prefWidth="120.0" style="-fx-background-color: #2e3348;" text="Войти" textFill="WHITE">
             <font>
-                <Font name="Microsoft Sans Serif" size="18.0"/>
+                <Font name="Microsoft Sans Serif" size="18.0" />
             </font>
             <cursor>
-                <Cursor fx:constant="HAND"/>
+                <Cursor fx:constant="HAND" />
             </cursor>
         </Button>
-        <TextField fx:id="loginTextField" layoutX="350.0" layoutY="369.0" prefHeight="48.0" prefWidth="400.0"
-                   promptText="Логин"/>
-        <PasswordField fx:id="passwordTextField" layoutX="350.0" layoutY="455.0" prefHeight="48.0" prefWidth="400.0"
-                       promptText="Пароль"/>
+        <TextField fx:id="loginTextField" layoutX="350.0" layoutY="369.0" prefHeight="48.0" prefWidth="400.0" promptText="Логин" />
+        <PasswordField fx:id="passwordTextField" layoutX="350.0" layoutY="455.0" prefHeight="48.0" prefWidth="400.0" promptText="Пароль" />
         <AnchorPane id="anchor" prefHeight="200.0" prefWidth="1100.0">
             <children>
-                <ImageView fx:id="logo" fitHeight="186.0" fitWidth="191.0" layoutX="7.0" layoutY="7.0"
-                           pickOnBounds="true" preserveRatio="true">
+                <ImageView fx:id="logo" fitHeight="186.0" fitWidth="191.0" layoutX="7.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@../images/nba-logo.png"/>
+                        <Image url="@../images/nba-logo.png" />
                     </image>
                 </ImageView>
-                <Button fx:id="buttonSignUp" layoutX="813.0" layoutY="75.0" mnemonicParsing="false" prefHeight="50.0"
-                        prefWidth="230.0" text="Регистрация" textFill="#796c6c">
+                <Button fx:id="buttonSignUp" layoutX="813.0" layoutY="75.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="230.0" text="Регистрация" textFill="#796c6c">
                     <font>
-                        <Font name="Microsoft Sans Serif" size="18.0"/>
+                        <Font name="Microsoft Sans Serif" size="18.0" />
                     </font>
                     <cursor>
-                        <Cursor fx:constant="HAND"/>
+                        <Cursor fx:constant="HAND" />
                     </cursor>
                 </Button>
             </children>
         </AnchorPane>
-        <Label fx:id="labelLogIn" layoutX="469.0" layoutY="278.0" prefHeight="48.0" prefWidth="170.0" text="Авторизация"
-               textFill="#796c6c">
+        <Label fx:id="labelLogIn" layoutX="469.0" layoutY="278.0" prefHeight="48.0" prefWidth="170.0" text="Авторизация" textFill="#796c6c">
             <font>
-                <Font name="MS Reference Sans Serif" size="24.0"/>
+                <Font name="MS Reference Sans Serif" size="24.0" />
             </font>
         </Label>
-        <Label fx:id="labelBadLoginData" alignment="CENTER" layoutX="400.0" layoutY="545.0"
-               text="Неправильно введен логин и/или пароль!" textFill="#f20606">
+        <Label fx:id="labelBadLoginData" alignment="CENTER" layoutX="400.0" layoutY="545.0" text="Неправильно введен логин и/или пароль!" textFill="#f20606">
             <font>
-                <Font name="MS Reference Sans Serif" size="14.0"/>
+                <Font name="MS Reference Sans Serif" size="14.0" />
             </font>
         </Label>
     </children>

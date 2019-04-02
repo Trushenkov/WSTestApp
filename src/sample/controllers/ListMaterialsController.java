@@ -32,6 +32,7 @@ import java.util.function.Predicate;
 public class ListMaterialsController {
 
     private static final String SELECT = "select * from " + Const.TABLE_MATERIAL;
+
     @FXML
     private ResourceBundle resources;
     @FXML
@@ -62,7 +63,6 @@ public class ListMaterialsController {
     private TextField searchTextField;
     @FXML
     private Button updateBtn;
-
     @FXML
     private TextField tf_width;
     @FXML
@@ -78,14 +78,48 @@ public class ListMaterialsController {
     @FXML
     private TextField tf_price;
 
-
     //    private ObservableList<ObservableList> data;
+
     @FXML
     private ImageView logo;
+
     private ObservableList<Material> list;
 
-    private Material material;
+    /**
+     * Метод для поиска расстояния Левенштейна
+     *
+     * @param str1 первая строка
+     * @param str2 вторая строка
+     * @return расстояние Левенштейна
+     */
+    private static int levenstain(String str1, String str2) {
+        int[] Di_1 = new int[str2.length() + 1];
+        int[] Di = new int[str2.length() + 1];
 
+        for (int j = 0; j <= str2.length(); j++) {
+            Di[j] = j; // (i == 0)
+        }
+
+        for (int i = 1; i <= str1.length(); i++) {
+            System.arraycopy(Di, 0, Di_1, 0, Di_1.length);
+
+            Di[0] = i; // (j == 0)
+            for (int j = 1; j <= str2.length(); j++) {
+                int cost = (str1.charAt(i - 1) != str2.charAt(j - 1)) ? 1 : 0;
+                Di[j] = min(
+                        Di_1[j] + 1,
+                        Di[j - 1] + 1,
+                        Di_1[j - 1] + cost
+                );
+            }
+        }
+
+        return Di[Di.length - 1];
+    }
+
+    private static int min(int n1, int n2, int n3) {
+        return Math.min(Math.min(n1, n2), n3);
+    }
 
     @FXML
     void initialize() {
@@ -101,32 +135,9 @@ public class ListMaterialsController {
 
         list = FXCollections.observableArrayList();
 
-        try {
-            DataBaseHandler dbhandler = new DataBaseHandler();
+        getMaterialFromDb();
 
-            Connection conn = dbhandler.getDbConnection();
-            PreparedStatement ps = conn.prepareStatement(SELECT);
-            ResultSet rs = ps.executeQuery();
-
-            while (rs.next()) {
-                material = new Material(rs.getString("Артикул"),
-                        rs.getString("Наименование"),
-                        rs.getString("Марка"),
-                        rs.getString("Цвет"),
-                        rs.getInt("Длина, мм"),
-                        rs.getInt("Ширина, мм"),
-                        rs.getInt("Цена"));
-
-                list.add(material);
-            }
-
-        } catch (Exception e) {
-            e.printStackTrace();
-            System.out.println("Error on Building Data");
-        }
-
-
-        tableView.setItems(list);
+        System.out.println(list.size() + " -  Размер листа");
 
         //множественная выборка из таблицы
 //        tableView.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
@@ -144,18 +155,20 @@ public class ListMaterialsController {
         });
 
 
-        FilteredList<Material> filteredList = new FilteredList<Material>(list, e -> true);
+        FilteredList<Material> filteredList = new FilteredList<>(list);
         searchTextField.textProperty().addListener((observable, oldValue, newValue) -> {
             filteredList.setPredicate((Predicate<? super Material>) materialPredicate -> {
-                if (newValue == null || newValue.isEmpty()){
+                if (newValue == null || newValue.isEmpty()) {
                     return true;
                 }
+
                 String lowerCaseNewValue = newValue.toLowerCase();
-                if (materialPredicate.getArticul().toLowerCase().contains(lowerCaseNewValue)){
-                    return true;
-                } else if (materialPredicate.getName().toLowerCase().contains(lowerCaseNewValue)) {
-                    return true;
+
+                for (int i = 0; i < list.size(); i++) {
+                    System.out.println(list.get(i).getName().toLowerCase());
+                    return levenstain(lowerCaseNewValue, materialPredicate.getName().toLowerCase()) <= 3;
                 }
+
 
                 return false;
             });
@@ -166,7 +179,7 @@ public class ListMaterialsController {
         tableView.setItems(sortedList);
 
         tableView.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
-            if (newValue!= null) {
+            if (newValue != null) {
                 tf_articul.setText(tableView.getSelectionModel().getSelectedItem().getArticul());
                 tf_name.setText(tableView.getSelectionModel().getSelectedItem().getName());
                 tf_color.setText(tableView.getSelectionModel().getSelectedItem().getColor());
@@ -179,13 +192,20 @@ public class ListMaterialsController {
 
     }
 
+    /**
+     * Метод для обработки события при нажатии на кнопку "Обновить"
+     *
+     * @param event
+     * @throws SQLException
+     * @throws ClassNotFoundException
+     */
     public void update(ActionEvent event) throws SQLException, ClassNotFoundException {
         String articul = tableView.getSelectionModel().getSelectedItem().getArticul();
 
-        String update = " UPDATE `материал` SET `Артикул`=?, `Наименование`=?, `Марка`=?, " +
+        String update = "UPDATE `материал` SET `Артикул`=?, `Наименование`=?, `Марка`=?, " +
                 "`Цвет`=?, `Длина, мм`=?, `Ширина, мм`=?, `Цена`=? where `Артикул`= '" + articul + "'";
 
-        DataBaseHandler handler =  new DataBaseHandler();
+        DataBaseHandler handler = new DataBaseHandler();
         PreparedStatement preparedStatement = handler.getDbConnection().prepareStatement(update);
         preparedStatement.setString(1, tf_articul.getText());
         preparedStatement.setString(2, tf_name.getText());
@@ -197,18 +217,19 @@ public class ListMaterialsController {
         preparedStatement.executeUpdate();
 
         for (int i = 0; i < list.size(); i++) {
-            if(list.get(i).getArticul().equals(tf_articul.getText())){
-                list.get(i).setColor(tf_name.getText());
+            if (list.get(i).getArticul().equals(tf_articul.getText())) {
+                list.get(i).setName(tf_name.getText());
                 list.get(i).setColor(tf_color.getText());
-                list.get(i).setColor(tf_marka.getText());
-                list.get(i).setColor(tf_length.getText());
-                list.get(i).setColor(tf_width.getText());
-                list.get(i).setColor(tf_price.getText());
+                list.get(i).setMarka(tf_marka.getText());
+                list.get(i).setLength(Integer.parseInt(tf_length.getText()));
+                list.get(i).setWidth(Integer.parseInt(tf_width.getText()));
+                list.get(i).setPrice(Integer.parseInt(tf_price.getText()));
             }
         }
 
 
         System.out.println("Updated item  with Артикул=" + tf_articul.getText());
+        System.out.println(list);
 
         tf_articul.setText("");
         tf_name.setText("");
@@ -220,6 +241,13 @@ public class ListMaterialsController {
 
         list.clear();
 
+        getMaterialFromDb();
+    }
+
+    /**
+     * Метод для получения данных из таблицы "материал" и вставки
+     */
+    private void getMaterialFromDb() {
         try {
             DataBaseHandler dbhandler = new DataBaseHandler();
 
@@ -228,7 +256,7 @@ public class ListMaterialsController {
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
-                material = new Material(rs.getString("Артикул"),
+                Material material = new Material(rs.getString("Артикул"),
                         rs.getString("Наименование"),
                         rs.getString("Марка"),
                         rs.getString("Цвет"),
@@ -246,4 +274,5 @@ public class ListMaterialsController {
 
         tableView.setItems(list);
     }
+
 }

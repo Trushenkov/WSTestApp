@@ -1,6 +1,7 @@
 package sample.controllers;
 
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -14,6 +15,7 @@ import sample.Service;
 import sample.animation.Shake;
 import sample.entities.User;
 
+import javax.swing.event.HyperlinkEvent;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.prefs.Preferences;
@@ -53,6 +55,7 @@ public class LoginController {
             buttonSignUp.getScene().getWindow().hide();
             new Service().changeScreen("/sample/view/signUp.fxml", "Регистрация");
         });
+
     }
 
     /**

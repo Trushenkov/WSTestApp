@@ -10,16 +10,16 @@ package sample;
  * @author Трушенков Дмитрий 15ИТ18
  */
 class Config {
-    /**
+    /*
      * MySQL
      */
     String dbHost = "localhost";
     String dbPort = "3306";
     String dbUser = "root";
     String dbPass = "12345";
-    String dbName = "public";
+    String dbName = "dmitryschema";
 
-    /**
+    /*
      * PostgreSQL
      */
 //    String dbHost = "localhost";
